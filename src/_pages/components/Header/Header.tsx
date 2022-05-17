@@ -22,8 +22,8 @@ const Header: React.FC<Props & AppBarProps> = ({...appBarProps}) => {
     return (
         // <Box sx={{ flexGrow: 1 }} style={{...(sticky ? stickyStyle : {}), ...style}}>
             <AppBar {...appBarProps} style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '90%', margin: '0 auto', paddingTop: '25px'}}>
-                <img src='https://pngpart.com/images/bt/eagle-logo-14.png' style={{height: '64px'}}/>
-                <div style={{display: 'flex', flexDirection: 'row', gap: '50px'}}>
+                <img src='logo.png' style={{height: '64px', width: 'auto'}}/>
+                <div style={{display: 'flex', flexDirection: 'row', gap: '50px', alignItems: 'center'}}>
                     <Box component={'nav'} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }}} style={{alignItems: 'center', gap: '50px'}}>
                         {pages.map((page) => (
                             <a key={page} onClick={() => {}}>
@@ -31,7 +31,7 @@ const Header: React.FC<Props & AppBarProps> = ({...appBarProps}) => {
                             </a>
                         ))}
                     </Box>
-                    <Button style={{backgroundColor: 'darkgoldenrod', opacity: .25, cursor: 'no-drop'}} variant='contained' size='large' >Sign Up</Button>
+                    <Button style={{backgroundColor: '#e9aa0e', maxHeight: '30px'}} variant='contained' size='medium' >Learn more</Button>
                 </div>
             </AppBar>
         // </Box>

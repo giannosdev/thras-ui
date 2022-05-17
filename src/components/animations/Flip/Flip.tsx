@@ -1,24 +1,29 @@
 import * as React from 'react';
 import {withStyles} from '@mui/styles'
-import {styles} from './Flip.styles';
+import styles from './Flip.module.css';
 import {Grid} from "@mui/material";
+import {CSSProperties, useState} from "react";
 
 interface Props {
-    classes?: any;
     front: React.ReactNode;
     back: React.ReactNode;
+    style?: CSSProperties;
 }
 
-const Flip: React.FC<Props> = ({classes, front, back}) => {
+const Flip: React.FC<Props> = ({front, back, style}) => {
     // const Wrapper = component();
-    return <Grid item xs={2} md className={classes.flipBox} sx={{m: 0, p: 0}}>
-        <div className={classes.flipBoxFront}>
-            {front}
-        </div>
-        <div className={classes.flipBoxBack}>
-            {back}
+    const [isHovered, setIsHovered] = useState(false);
+    return <Grid item xs={12} md={6} lg={4} sx={{m: 0, p: 0, ...style}} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+
+        <div className={styles.flipBox}>
+            <div className={`${styles.flipBoxFront} ${isHovered ? styles.flipBoxFrontHover : ''}`}>
+                {front}
+            </div>
+            <div className={`${styles.flipBoxBack} ${isHovered ? styles.flipBoxBackHover : ''}`}>
+                {back}
+            </div>
         </div>
     </Grid>
 }
 
-export default withStyles(styles)(Flip);
+export default Flip;
