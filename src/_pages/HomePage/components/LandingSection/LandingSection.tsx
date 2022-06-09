@@ -16,12 +16,12 @@ const LandingSection: React.FC = ({contentScrolled}) => {
         <Grid container className={styles.mainInner}>
             <Grid item xs md={8}>
 
-                <h1 className={styles.title} style={{
+                <h2 className={styles.title} style={{
                     borderLeft: '5px dotted #FFF',
                     paddingLeft: '0.5em',
                 }}>
                     Let's get <br/><span style={{color: '#e9aa0e'}}>Technical</span>
-                </h1>
+                </h2>
                 <p className={styles.description}>
                     Passion. Patience. Persistence. Profit.
                 </p>
