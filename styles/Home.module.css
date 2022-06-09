@@ -20,7 +20,7 @@ background-size: cover;
   justify-content: center;
   height: calc(100% - 64px);
 
-  width: 90%;
+  width: 90% !important;
   padding-top: 64px;
   margin: 0 auto;
 }

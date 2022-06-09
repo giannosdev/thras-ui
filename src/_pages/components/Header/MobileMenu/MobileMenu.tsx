@@ -37,7 +37,7 @@ export default function MobileMenu(props: SimpleDialogProps) {
                 "& .MuiDialog-container": {alignItems: 'flex-end !important', backdropFilter: 'blur(8px)'},
 
             }}>
-            <DialogTitle style={{fontWeight: 'bolder', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>Disclaimer <CloseIcon onClick={onClose}/></DialogTitle>
+            <DialogTitle style={{display: 'flex'}}><CloseIcon onClick={onClose} style={{marginLeft: 'auto'}}/></DialogTitle>
             <DialogContent style={{display: 'flex', alignItems: 'center'}}>
                 <List component={'nav'} style={{alignItems: 'center', gap: '50px', color: '#333'}}>
                     {pages.map((page) => (
