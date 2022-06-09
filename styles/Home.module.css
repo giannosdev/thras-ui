@@ -3,13 +3,14 @@
 }
 
 .main {
-  margin-top: calc(-64px - 25px - 5px);
-  background: linear-gradient( rgba(0,0,0,.15), rgba(0,0,0,.7) ), url("/bg.png") no-repeat center;
+  margin-top: calc(-64px - 25px - 13px);
+  background: linear-gradient( rgba(0,0,0,.8), rgba(0,0,0,.05) ), url("/Background.jpeg") no-repeat center;
 background-size: cover;
   height: 100vh;
     align-items: center;
     display: flex;
-  border-bottom-right-radius: 15%;
+  border-bottom-right-radius: 10%;
+    border-bottom: 3px solid darkgoldenrod;
 }
 
 .mainInner {
@@ -58,9 +59,18 @@ background-size: cover;
   font-size: 4rem;
 }
 
+.sectionTitle {
+    border-bottom: 3px dotted #e9aa0e;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 45px;
+    padding-bottom: 10px;
+}
+
 .title,
 .description {
   /*text-align: center;*/
+    color: #fff;
 }
 
 .description {

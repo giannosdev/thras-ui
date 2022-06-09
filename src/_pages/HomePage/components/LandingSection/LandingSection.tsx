@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import styles from "../../../../../styles/Home.module.css";
 import {Motion, spring} from "react-motion";
 import {Link} from "react-scroll";
-import {Button, Box, FormHelperText, FormControl, InputLabel, TextField, Typography} from "@mui/material";
+import {Button, Box, FormHelperText, FormControl, InputLabel, TextField, Typography, Grid} from "@mui/material";
 import {Label} from "@mui/icons-material";
 import CountrySelect from "./components/CountryDropdown/CountryDropdown";
 
@@ -13,8 +13,8 @@ const LandingSection: React.FC = () => {
         setTimeout(() => setShowNewsletterForm(true), 2000);
     }, []);
     return <main className={styles.main}>
-        <div className={styles.mainInner}>
-            <div style={{width: '60%'}}>
+        <Grid container className={styles.mainInner}>
+            <Grid item xs md={8}>
 
                 <h1 className={styles.title} style={{
                     borderLeft: '5px dotted #FFF',
@@ -28,20 +28,24 @@ const LandingSection: React.FC = () => {
                 <div style={{display: 'flex', flexDirection: 'row', gap: '25px'}}>
                     <Link activeClass="active" className="test1" to="test1" spy={true} smooth={true} duration={500}>
                         <Button color='primary' variant='outlined' style={{border: '1px solid #e9aa0e', color: '#e9aa0e'}}>View our services</Button>
+
                     </Link>
+                    <Button style={{backgroundColor: '#e9aa0e'}} variant='contained' size='medium' >Learn now</Button>
                 </div>
-            </div>
-            <div style={{width: '40%'}}>
+            </Grid>
+            <Grid item xs md={4}>
                 <Motion style={{x: spring(showNewsletterForm ? 0 : -2000)}}>
                     {({x}) => <Box
                         component={'form'}
                         style={{
-                            background: 'rgba(0,0,0,.2)',
+                            background: 'rgba(255,255,255, .75)',
                             color: '#FFF',
                             padding: '25px',
                             WebkitTransform: `translate3d(${x}px, 0, 0)`,
                             transform: `translate3d(${x}px, 0, 0)`,
+                            borderRadius: '10px'
                         }}>
+                        <Typography variant='h5' style={{color: '#777'}}>Sign up to our newsletter</Typography><br/>
                         <FormControl style={{display: 'flex', flexDirection: 'row', gap: '25px'}} sx={{mb: 3}}>
                             <TextField style={{width: '50%'}} variant='standard' label={'Name'} id="my-input" aria-describedby="my-helper-text" />
                             <TextField style={{width: '50%'}} variant='standard' label={'Surname'} id="my-input" aria-describedby="my-helper-text" />
@@ -49,16 +53,16 @@ const LandingSection: React.FC = () => {
                         <FormControl style={{width: '100%'}} sx={{mb: 3}}>
                             <TextField variant='standard' label={'Email'} id="my-input" aria-describedby="my-helper-text" />
                         </FormControl>
-                        <FormControl style={{width: '100%'}} sx={{mb: 3}}>
+                        <FormControl style={{width: '100%'}} sx={{mb: 5}}>
                             <TextField variant='standard' label={'Phone (optional)'} id="my-input" aria-describedby="my-helper-text" />
                         </FormControl>
                         <CountrySelect style={{width: '100%'}} />
-                        <Button sx={{mt: 3}} style={{backgroundColor: '#e9aa0e'}} fullWidth variant='contained' size='medium' >Sign Up</Button>
-
+                        <br/>
+                        <Button fullWidth color='primary' variant='outlined' style={{border: '1px solid #e9aa0e', color: '#e9aa0e'}}>Sign Up</Button>
                     </Box>}
                 </Motion>
-            </div>
-    </div>
+            </Grid>
+    </Grid>
 
 
     </main>

@@ -18,20 +18,25 @@ const transparentStyle = { background: 'transparent', boxShadow: 'none'};
 const pages = ['Home', 'Memberships', 'Blog'];
 
 
-const Header: React.FC<Props & AppBarProps> = ({...appBarProps}) => {
+const Header: React.FC<Props & AppBarProps> = ({contentScrolled, ...rest}) => {
     return (
         // <Box sx={{ flexGrow: 1 }} style={{...(sticky ? stickyStyle : {}), ...style}}>
-            <AppBar {...appBarProps} style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', width: '90%', margin: '0 auto', paddingTop: '25px'}}>
-                <img src='logo.png' style={{height: '64px', width: 'auto'}}/>
-                <div style={{display: 'flex', flexDirection: 'row', gap: '50px', alignItems: 'center'}}>
-                    <Box component={'nav'} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }}} style={{alignItems: 'center', gap: '50px'}}>
-                        {pages.map((page) => (
-                            <a key={page} onClick={() => {}}>
-                                {page}
-                            </a>
-                        ))}
+            <AppBar id='header' {...rest} style={{height: '102px', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background-color 0.2s ease-in-out'}}>
+                <div style={{display: 'flex', flexDirection: 'row', width: '90%', justifyContent: 'space-between', alignItems: 'center'}}>
+                    <Box component={'nav'} sx={{ display: { xs: 'flex', md: 'none' }}}>
+                        <MenuIcon style={{fontSize: '36px'}} />
                     </Box>
-                    <Button style={{backgroundColor: '#e9aa0e', maxHeight: '30px'}} variant='contained' size='medium' >Learn more</Button>
+                    <img src='logo.png' style={{height: '48px', width: 'auto', filter: !contentScrolled ? 'invert(1)' : ''}}/>
+                    <div style={{display: 'flex', flexDirection: 'row', gap: '50px', alignItems: 'center'}}>
+                        <Box component={'nav'} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }}} style={{alignItems: 'center', gap: '50px', color: contentScrolled ? '#333' : '#FFF'}}>
+                            {pages.map((page) => (
+                                <a key={page} onClick={() => {}}>
+                                    {page}
+                                </a>
+                            ))}
+                        </Box>
+                        {contentScrolled && <Button style={{backgroundColor: '#e9aa0e', maxHeight: '30px'}} variant='contained' size='medium' >Learn now</Button>}
+                    </div>
                 </div>
             </AppBar>
         // </Box>

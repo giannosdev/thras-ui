@@ -6,15 +6,25 @@ import Header from "../_pages/components/Header/Header";
 import Disclaimer from "../_pages/components/Disclaimer/Disclaimer";
 import styles from "../../styles/Home.module.css";
 import '../../styles/globals.css'
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+    palette: {
+        white: {
+            main: '#fff',
+        },
+    }
+});
 
 function MyApp({Component, pageProps}: AppProps) {
     const [disclaimerOpen, setDisclaimerOpen] = useState(false);
+    const [contentScrolled, setContentScrolled] = useState(false);
     const trackScrolling = () => {
-        const wrappedElement = document.getElementById('header');
-        if (wrappedElement && wrappedElement.getBoundingClientRect().top > 0) {
-            console.log('header bottom reached');
-            document.removeEventListener('scroll', trackScrolling);
+        const wrappedElement = document.getElementById('content');
+        if (wrappedElement && wrappedElement.getBoundingClientRect().top < -50) {
+            return setContentScrolled(true);
         }
+        setContentScrolled(false);
     };
     useEffect(() => {
         if (document && localStorage) {
@@ -43,21 +53,25 @@ function MyApp({Component, pageProps}: AppProps) {
                 href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
             />
         </Head>
-        <Header position='sticky' color='transparent' elevation={0}/>
-        <Component {...pageProps} />
-        <footer className={styles.footer}>
-            <a
-                href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Powered by{' '}
-                <span className={styles.logo}>
-                  <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16}/>
-                </span>
-            </a>
-        </footer>
-        <Disclaimer open={disclaimerOpen} onAgree={handleOnDisclaimerAgree}/>
+        <ThemeProvider theme={theme}>
+            <Header position='sticky' color={contentScrolled ? 'white' : 'transparent'} contentScrolled={contentScrolled} elevation={0}/>
+            <div id='content'>
+                <Component {...pageProps} />
+            </div>
+            <footer className={styles.footer}>
+                <a
+                    href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Powered by{' '}
+                    <span className={styles.logo}>
+                      <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16}/>
+                    </span>
+                </a>
+            </footer>
+            <Disclaimer open={disclaimerOpen} onAgree={handleOnDisclaimerAgree}/>
+        </ThemeProvider>
     </>;
 }
 
