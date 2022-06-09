@@ -11,11 +11,11 @@ import LandingSection from "../_pages/HomePage/components/LandingSection/Landing
 import ServicesSection from "../_pages/HomePage/components/ServicesSection/ServicesSection";
 
 
-const Home: NextPage = () => {
+const Home: NextPage = ({contentScrolled}) => {
   return (
     // <div className={styles.container}>
       <>
-        <LandingSection />
+        <LandingSection contentScrolled={contentScrolled} />
 
       <Element name="test1" className="element" >
         <ServicesSection />

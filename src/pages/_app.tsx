@@ -56,7 +56,7 @@ function MyApp({Component, pageProps}: AppProps) {
         <ThemeProvider theme={theme}>
             <Header position='sticky' color={contentScrolled ? 'white' : 'transparent'} contentScrolled={contentScrolled} elevation={0}/>
             <div id='content'>
-                <Component {...pageProps} />
+                <Component {...pageProps} contentScrolled={contentScrolled} />
             </div>
             <footer className={styles.footer}>
                 <a

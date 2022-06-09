@@ -7,7 +7,7 @@ import {Label} from "@mui/icons-material";
 import CountrySelect from "./components/CountryDropdown/CountryDropdown";
 
 
-const LandingSection: React.FC = () => {
+const LandingSection: React.FC = ({contentScrolled}) => {
     const [showNewsletterForm, setShowNewsletterForm] = useState(false);
     useEffect(() => {
         setTimeout(() => setShowNewsletterForm(true), 2000);
@@ -30,7 +30,7 @@ const LandingSection: React.FC = () => {
                         <Button color='primary' variant='outlined' style={{border: '1px solid #e9aa0e', color: '#e9aa0e'}}>View our services</Button>
 
                     </Link>
-                    <Button style={{backgroundColor: '#e9aa0e'}} variant='contained' size='medium' >Learn now</Button>
+                   <Button style={{backgroundColor: '#e9aa0e'}} variant='contained' size='medium' >Learn now</Button>
                 </div>
             </Grid>
             <Grid item sx={{display: {xs: 'none', md: 'flex'}}} md={4}>
