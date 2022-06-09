@@ -68,7 +68,8 @@ const ServicesSection: React.FC = ({classes}) => {
     return <div style={{width: '90%', margin: '0 auto'}}>
         {/*<h2 style={{color: '#e9aa0e'}}>Our Services</h2>*/}
         {/*<Button sx={{mt: 5, borderColor: '#e9aa0e', color: '#e9aa0e', '&:hover': {borderColor: '#e9aa0e', background: '#e9aa0e', color: '#FFF'}}} fullWidth variant='outlined'>Our Services</Button>*/}
-        <Typography className={styles.sectionTitle} variant='h4' sx={{textAlign: 'center', mt: 5}}>Gain an understanding of..</Typography>
+        <Typography className={styles.sectionTitle} variant='h5' sx={{textAlign: 'center', mt: 5}}>Gain an understanding of..</Typography>
+
         <Grid container spacing={3} sx={{m: 0, p: 0, mt: 5}}>
             {services.map(({title, bgImg, description, back}, i) => <Flip
                 key={title}

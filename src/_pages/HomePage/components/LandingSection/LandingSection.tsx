@@ -26,14 +26,14 @@ const LandingSection: React.FC = () => {
                     Passion. Patience. Persistence. Profit.
                 </p>
                 <div style={{display: 'flex', flexDirection: 'row', gap: '25px'}}>
-                    <Link activeClass="active" className="test1" to="test1" spy={true} smooth={true} duration={500}>
+                    <Link activeClass="active" className="test1" to="test1" spy={true} smooth={true} duration={500} offset={-135}>
                         <Button color='primary' variant='outlined' style={{border: '1px solid #e9aa0e', color: '#e9aa0e'}}>View our services</Button>
 
                     </Link>
                     <Button style={{backgroundColor: '#e9aa0e'}} variant='contained' size='medium' >Learn now</Button>
                 </div>
             </Grid>
-            <Grid item xs md={4}>
+            <Grid item sx={{display: {xs: 'none', md: 'flex'}}} md={4}>
                 <Motion style={{x: spring(showNewsletterForm ? 0 : -2000)}}>
                     {({x}) => <Box
                         component={'form'}
