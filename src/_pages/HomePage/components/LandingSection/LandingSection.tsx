@@ -36,7 +36,7 @@ const LandingSection: React.FC = ({contentScrolled}) => {
                 }}>
                     Let's get <br/><span style={{color: '#D4AF37'}}>Technical</span>
                 </Typography>
-                <p className={styles.description}>
+                <p style={{fontSize: !smUp ? '1.25rem' : '1.5rem'}} className={styles.description} >
                     Passion | Patience | Persistence | Profit
                 </p>
                 <div style={{display: 'flex', flexDirection: 'row', gap: '25px', justifyContent: !smUp ? 'center' : 'inherit'}}>
