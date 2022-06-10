@@ -29,7 +29,7 @@ const Footer: React.FC<Props & AppBarProps> = () => {
         <div style={{margin: '50px auto 0', background: '#111', color: '#333'}}>
             <Grid container spacing={2} style={{width: '90%', margin: '0 auto' , padding: '25px 0'}}>
                 <Grid item xs={12} style={{paddingLeft: 0, paddingRight: 0, display: 'flex', flexDirection: 'row', justifyContent: 'right'}} >
-                    <div style={{display: 'flex', flexDirection: 'row', gap: '15px', justifyContent: !smUp ? 'space-between' : "inherit"}}>
+                    <div style={{display: 'flex', flexDirection: 'row', gap: '15px', justifyContent: !smUp ? 'space-between' : "inherit", width: '100%'}}>
                         {['Home', 'About Us', 'Memberships', 'Contact Us'].map(menuItem => {
                             return <Link href='#!'><LinkMUI sx={{color: '#FFF', textDecoration: 'none', '&:hover': {color: '#D4AF37', cursor: 'pointer'}}}>{menuItem}</LinkMUI></Link>
                         })}
