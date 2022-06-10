@@ -10,6 +10,7 @@ import {AppBarProps} from "@mui/material/AppBar/AppBar";
 import MobileMenu from "./MobileMenu/MobileMenu";
 import {useState} from "react";
 import handler from "../../../pages/api/hello";
+import {useRouter} from "next/router";
 
 interface Props {
     style?: {};
@@ -18,10 +19,27 @@ interface Props {
 
 const transparentStyle = { background: 'transparent', boxShadow: 'none'};
 
-const pages = ['Home', 'Memberships', 'Blog'];
+const pages = [
+    {
+        label: 'Home',
+        route: '/'
+    },
+    {
+        label: 'About Us',
+        route: '/about-us',
+        disabled: true,
+    },
+    {
+        label: 'Memberships',
+        route: '/memberships',
+        disabled: true,
+    },
+];
 
 
 const Header: React.FC<Props & AppBarProps> = ({contentScrolled, ...rest}) => {
+    const router = useRouter();
+    const currentRoute = router.pathname;
     const [menuOpen, setMenuOpen] = useState(false);
     const handleOpenMenu = () => {
         setMenuOpen(true);
@@ -34,15 +52,20 @@ const Header: React.FC<Props & AppBarProps> = ({contentScrolled, ...rest}) => {
                     <img src='logo.png' style={{height: '48px', width: 'auto', filter: !contentScrolled ? 'invert(1)' : ''}}/>
                     <Box component={'nav'} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex'}, justifyContent: 'right'}} style={{alignItems: 'center', gap: '50px', color: contentScrolled ? '#333' : '#FFF'}}>
                         {pages.map((page) => (
-                            <a key={page} onClick={() => {}}>
-                                {page}
+                            <a
+                                key={page.route} onClick={() => {}}
+                                style={{
+                                    color: currentRoute === page.route ? '#D4AF37' : (page.disabled ? '#aaa' : 'inherit'),
+                                    cursor: currentRoute === page.route ? 'inherit' : page.disabled ? 'no-drop' : 'pointer'
+                                }}>
+                                {page.label}
                             </a>
                         ))}
                     </Box>
                     <div style={{marginLeft: 'auto', display: 'flex', alignItems: 'center'}}>
                         {/*{contentScrolled && <Button style={{backgroundColor: '#D4AF37', maxHeight: '30px', marginLeft: '25px'}} variant='contained' size='medium' >Learn now</Button>}*/}
                         <Box component={'nav'} sx={{ display: { xs: 'flex', md: 'none' }}}>
-                            <MenuIcon onClick={() => handleOpenMenu()} style={{fontSize: '36px', color: contentScrolled ? 'inherit': 'white'}} />
+                            <MenuIcon onClick={() => handleOpenMenu()} style={{cursor: 'pointer', fontSize: '36px', color: contentScrolled ? 'inherit': 'white'}} />
                         </Box>
                     </div>
                     {/*<div style={{display: 'flex', flexDirection: 'row', gap: '50px', alignItems: 'center'}}>*/}

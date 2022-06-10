@@ -2,7 +2,18 @@ import React, {useEffect, useState} from "react";
 import styles from "../../../../../styles/Home.module.css";
 import {Motion, spring} from "react-motion";
 import {Link} from "react-scroll";
-import {Button, Box, FormHelperText, FormControl, InputLabel, TextField, Typography, Grid} from "@mui/material";
+import {
+    Button,
+    Box,
+    FormHelperText,
+    FormControl,
+    InputLabel,
+    TextField,
+    Typography,
+    Grid,
+    useMediaQuery
+} from "@mui/material";
+import { useTheme } from '@mui/material/styles';
 import {Label} from "@mui/icons-material";
 import CountrySelect from "./components/CountryDropdown/CountryDropdown";
 
@@ -12,20 +23,23 @@ const LandingSection: React.FC = ({contentScrolled}) => {
     useEffect(() => {
         setTimeout(() => setShowNewsletterForm(true), 2000);
     }, []);
-    return <main className={styles.main}>
-        <Grid container className={styles.mainInner}>
-            <Grid item xs md={8}>
+    const theme = useTheme();
 
-                <h2 className={styles.title} style={{
-                    borderLeft: '5px dotted #FFF',
-                    paddingLeft: '0.5em',
+    const smUp = useMediaQuery(theme.breakpoints.up('md'));
+    return <main className={styles.main}>
+        <Grid container className={styles.mainInner} >
+            <Grid item xs md={8} sx={{textAlign: !smUp ? 'center' : ''}}>
+
+                <Typography variant='h2' className={styles.title} sx={{
+                    borderLeft: smUp ? '5px dotted #FFF' : '',
+                    paddingLeft: smUp ? '0.5em' : '',
                 }}>
                     Let's get <br/><span style={{color: '#D4AF37'}}>Technical</span>
-                </h2>
+                </Typography>
                 <p className={styles.description}>
-                    Passion. Patience. Persistence. Profit.
+                    Passion | Patience | Persistence | Profit
                 </p>
-                <div style={{display: 'flex', flexDirection: 'row', gap: '25px'}}>
+                <div style={{display: 'flex', flexDirection: 'row', gap: '25px', justifyContent: !smUp ? 'center' : 'inherit'}}>
                     <Link activeClass="active" className="test1" to="test1" spy={true} smooth={true} duration={500} offset={-135}>
                         <Button color='primary' variant='outlined' style={{border: '1px solid #D4AF37', color: '#D4AF37'}}>View our services</Button>
 

@@ -13,7 +13,7 @@ interface Props {
 const Flip: React.FC<Props> = ({front, back, style}) => {
     // const Wrapper = component();
     const [isHovered, setIsHovered] = useState(false);
-    return <Grid item xs={12} md={6} lg={4} sx={{m: 0, p: 0, ...style}} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+    return <Grid item xs={12} md={6} lg={4} sx={{m: 0, padding: '0 !important', ...style}} onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
 
         <div className={styles.flipBox}>
             <div className={`${styles.flipBoxFront} ${isHovered ? styles.flipBoxFrontHover : ''}`}>

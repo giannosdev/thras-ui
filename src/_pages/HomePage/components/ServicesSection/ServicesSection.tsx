@@ -70,18 +70,9 @@ const ServicesSection: React.FC = ({classes}) => {
         {/*<Button sx={{mt: 5, borderColor: '#D4AF37', color: '#D4AF37', '&:hover': {borderColor: '#D4AF37', background: '#D4AF37', color: '#FFF'}}} fullWidth variant='outlined'>Our Services</Button>*/}
         <Typography className={styles.sectionTitle} variant='h5' sx={{textAlign: 'center', marginTop: '50px'}}>Gain an understanding of..</Typography>
 
-        <Grid container spacing={3} sx={{m: 0, p: 0, mt: 5}}>
+        <Grid container spacing={3} sx={{m: 0, p: 0, mt: 5, width: '100%'}}>
             {services.map(({title, bgImg, description, back}, i) => <Flip
                 key={title}
-                style={{
-                    borderRadius: '5px',
-                    '&.MuiGrid-item': {
-                        marginLeft: {
-                            lg: (i === 0 || i === 3 ? '-32px' : 'inherit'),
-                            xs: '-32px'
-                        }
-                    },
-                }}
                 front={<div style={{
                     background: `url(${bgImg})`,
                     backgroundRepeat: 'no-repeat',
