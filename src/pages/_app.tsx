@@ -8,6 +8,9 @@ import styles from "../../styles/Home.module.css";
 import '../../styles/globals.css'
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Footer from "../_pages/components/Footer/Footer";
+import Fab from '@mui/material/Fab';
+import {KeyboardArrowUp} from "@mui/icons-material";
+import ScrollTop from "../components/composite/ScrollTop/ScrollTop";
 
 const theme = createTheme({
     palette: {
@@ -55,6 +58,7 @@ function MyApp({Component, pageProps}: AppProps) {
             />
         </Head>
         <ThemeProvider theme={theme}>
+            <div role='none' style={{display: 'hidden'}} id='back-to-top-anchor' />
             <Header position='sticky' color={contentScrolled ? 'white' : 'transparent'} contentScrolled={contentScrolled} elevation={0}/>
             <div id='content'>
                 <Component {...pageProps} contentScrolled={contentScrolled} />
@@ -73,6 +77,14 @@ function MyApp({Component, pageProps}: AppProps) {
             {/*    </a>*/}
             {/*</footer>*/}
             <Disclaimer open={disclaimerOpen} onAgree={handleOnDisclaimerAgree}/>
+            {contentScrolled && <ScrollTop><Fab
+                // size='large'
+                style={{
+                    color: '#111',
+                    background: '#FFF'
+                }}>
+                <KeyboardArrowUp />
+            </Fab></ScrollTop>}
         </ThemeProvider>
     </>;
 }

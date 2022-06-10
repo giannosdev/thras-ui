@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import {withStyles} from '@mui/styles'
 import StocksIcon from './StocksIcon';
-import {createSvgIcon, SvgIcon, Typography} from '@mui/material';
+import {createSvgIcon, SvgIcon, Typography, useMediaQuery} from '@mui/material';
 
 
 
@@ -13,6 +13,7 @@ import {Button, Grid} from "@mui/material";
 import Flip from "../../../../components/animations/Flip/Flip";
 // import {styles} from './ServicesSection.styles';
 import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
+import {useTheme} from "@mui/material/styles";
 
 const services = [
     {
@@ -65,10 +66,13 @@ interface Props {
 }
 
 const ServicesSection: React.FC = ({classes}) => {
+    const theme = useTheme();
+
+    const smUp = useMediaQuery(theme.breakpoints.up('md'));
     return <div style={{width: '90%', margin: '0 auto'}}>
         {/*<h2 style={{color: '#D4AF37'}}>Our Services</h2>*/}
         {/*<Button sx={{mt: 5, borderColor: '#D4AF37', color: '#D4AF37', '&:hover': {borderColor: '#D4AF37', background: '#D4AF37', color: '#FFF'}}} fullWidth variant='outlined'>Our Services</Button>*/}
-        <Typography className={styles.sectionTitle} variant='h5' sx={{textAlign: 'center', marginTop: '50px'}}>Gain an understanding of..</Typography>
+        <Typography className={styles.sectionTitle} variant='h5' sx={{textAlign: 'center', margin: !smUp ? '50px auto 0' : '50px 0 0 0'}}>Gain an understanding of..</Typography>
 
         <Grid container spacing={3} sx={{m: 0, p: 0, mt: 5, width: '100%'}}>
             {services.map(({title, bgImg, description, back}, i) => <Flip
