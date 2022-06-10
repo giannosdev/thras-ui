@@ -30,7 +30,7 @@ const LandingSection: React.FC = ({contentScrolled}) => {
         <Grid container className={styles.mainInner} >
             <Grid item xs md={8} sx={{textAlign: !smUp ? 'center' : ''}}>
 
-                <Typography variant='h2' className={styles.title} sx={{
+                <Typography variant={smUp ? 'h2' : 'h4'} className={styles.title} sx={{
                     borderLeft: smUp ? '5px dotted #FFF' : '',
                     paddingLeft: smUp ? '0.5em' : '',
                 }}>
@@ -41,7 +41,7 @@ const LandingSection: React.FC = ({contentScrolled}) => {
                 </p>
                 <div style={{display: 'flex', flexDirection: 'row', gap: '25px', justifyContent: !smUp ? 'center' : 'inherit'}}>
                     <Link activeClass="active" className="test1" to="test1" spy={true} smooth={true} duration={500} offset={-135}>
-                        <Button color='primary' variant='outlined' style={{border: '1px solid #D4AF37', color: '#D4AF37'}}>View our services</Button>
+                        <Button color='primary' variant='outlined' style={{border: '1px solid #D4AF37', color: '#D4AF37'}}>WHAT WE OFFER</Button>
 
                     </Link>
                    <Button style={{backgroundColor: '#D4AF37'}} variant='contained' size='medium' >Learn now</Button>

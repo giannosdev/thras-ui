@@ -10,9 +10,10 @@ import {AppBarProps} from "@mui/material/AppBar/AppBar";
 import MobileMenu from "./MobileMenu/MobileMenu";
 import {useState} from "react";
 import handler from "../../../pages/api/hello";
-import {Divider, Grid, List, ListItem, Stack, Link as LinkMUI} from "@mui/material";
+import {Divider, Grid, List, ListItem, Stack, Link as LinkMUI, useMediaQuery} from "@mui/material";
 import {Facebook, FacebookOutlined, Instagram, LinkedIn} from "@mui/icons-material";
 import Link from "next/link";
+import {useTheme} from "@mui/material/styles";
 
 interface Props {
     style?: {};
@@ -21,12 +22,14 @@ interface Props {
 
 
 const Footer: React.FC<Props & AppBarProps> = () => {
+    const theme = useTheme();
 
+    const smUp = useMediaQuery(theme.breakpoints.up('md'));
     return (
         <div style={{margin: '50px auto 0', background: '#111', color: '#333'}}>
             <Grid container spacing={2} style={{width: '90%', margin: '0 auto' , padding: '25px 0'}}>
                 <Grid item xs={12} style={{paddingLeft: 0, paddingRight: 0, display: 'flex', flexDirection: 'row', justifyContent: 'right'}} >
-                    <div style={{display: 'flex', flexDirection: 'row', gap: '15px'}}>
+                    <div style={{display: 'flex', flexDirection: 'row', gap: '15px', justifyContent: !smUp ? 'space-between' : "inherit"}}>
                         {['Home', 'About Us', 'Memberships', 'Contact Us'].map(menuItem => {
                             return <Link href='#!'><LinkMUI sx={{color: '#FFF', textDecoration: 'none', '&:hover': {color: '#D4AF37', cursor: 'pointer'}}}>{menuItem}</LinkMUI></Link>
                         })}
@@ -48,9 +51,9 @@ const Footer: React.FC<Props & AppBarProps> = () => {
                     <Typography variant='subtitle2'>© 2020 LetsGetTechnical. All rights reserved.</Typography>
                 </Grid>
                 <Grid item xs={6} style={{display: 'flex', justifyContent: 'right', paddingLeft: 0, paddingRight: 0, gap: '10px'}} >
-                    <Facebook sx={{fontSize: '36px', color: '#FFF', '&:hover': {background: '#D4AF37', cursor: 'pointer'}}} />
-                    <Instagram sx={{fontSize: '36px', color: '#FFF', '&:hover': {background: '#D4AF37', cursor: 'pointer'}}} />
-                    <LinkedIn sx={{fontSize: '36px', color: '#FFF', '&:hover': {background: '#D4AF37', cursor: 'pointer'}}} />
+                    <Facebook sx={{fontSize: '36px', color: '#FFF', '&:hover': {background: '#D4AF37', cursor: 'pointer', color: '#111'}}} />
+                    <Instagram sx={{fontSize: '36px', color: '#FFF', '&:hover': {background: '#D4AF37', cursor: 'pointer', color: '#111'}}} />
+                    <LinkedIn sx={{fontSize: '36px', color: '#FFF', '&:hover': {background: '#D4AF37', cursor: 'pointer', color: '#111'}}} />
                 </Grid>
             </Grid>
         </div>
