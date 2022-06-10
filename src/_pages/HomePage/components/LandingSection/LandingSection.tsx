@@ -20,17 +20,17 @@ const LandingSection: React.FC = ({contentScrolled}) => {
                     borderLeft: '5px dotted #FFF',
                     paddingLeft: '0.5em',
                 }}>
-                    Let's get <br/><span style={{color: '#e9aa0e'}}>Technical</span>
+                    Let's get <br/><span style={{color: '#D4AF37'}}>Technical</span>
                 </h2>
                 <p className={styles.description}>
                     Passion. Patience. Persistence. Profit.
                 </p>
                 <div style={{display: 'flex', flexDirection: 'row', gap: '25px'}}>
                     <Link activeClass="active" className="test1" to="test1" spy={true} smooth={true} duration={500} offset={-135}>
-                        <Button color='primary' variant='outlined' style={{border: '1px solid #e9aa0e', color: '#e9aa0e'}}>View our services</Button>
+                        <Button color='primary' variant='outlined' style={{border: '1px solid #D4AF37', color: '#D4AF37'}}>View our services</Button>
 
                     </Link>
-                   <Button style={{backgroundColor: '#e9aa0e'}} variant='contained' size='medium' >Learn now</Button>
+                   <Button style={{backgroundColor: '#D4AF37'}} variant='contained' size='medium' >Learn now</Button>
                 </div>
             </Grid>
             <Grid item sx={{display: {xs: 'none', md: 'flex'}}} md={4}>
@@ -58,7 +58,7 @@ const LandingSection: React.FC = ({contentScrolled}) => {
                         </FormControl>
                         <CountrySelect style={{width: '100%'}} />
                         <br/>
-                        <Button fullWidth color='primary' variant='outlined' style={{border: '1px solid #e9aa0e', color: '#e9aa0e'}}>Sign Up</Button>
+                        <Button fullWidth color='primary' variant='contained' style={{background: '#111'}}>Sign Up</Button>
                     </Box>}
                 </Motion>
             </Grid>

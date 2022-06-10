@@ -32,7 +32,7 @@ export default function MobileMenu(props: SimpleDialogProps) {
 
             open={open}
             fullScreen
-            PaperProps={{sx: {m: 0, minWidth: '100%', border: '5px solid darkgoldenrod'}}}
+            PaperProps={{sx: {m: 0, minWidth: '100%', border: '5px solid #D4AF37'}}}
             sx={{
                 "& .MuiDialog-container": {alignItems: 'flex-end !important', backdropFilter: 'blur(8px)'},
 
@@ -48,7 +48,7 @@ export default function MobileMenu(props: SimpleDialogProps) {
                 </List>
             </DialogContent>
             <DialogActions sx={{justifyContent: 'left', pl: 3, pb: 2}}>
-                <Button fullWidth variant='contained' onClick={onClose} autoFocus style={{backgroundColor: '#e9aa0e'}}>
+                <Button fullWidth variant='contained' onClick={onClose} autoFocus style={{backgroundColor: '#D4AF37'}}>
                     LEARN NOW
                 </Button>
             </DialogActions>

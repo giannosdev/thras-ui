@@ -29,7 +29,7 @@ const Header: React.FC<Props & AppBarProps> = ({contentScrolled, ...rest}) => {
 
     return (
         <>
-            <AppBar id='header' {...rest} style={{height: '102px', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background-color 0.2s ease-in-out'}}>
+            <AppBar id='header' {...rest} style={{height: '102px', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background-color 0.2s ease-in-out', willChange: 'scroll-position', borderBottom: contentScrolled ? '1px solid #e1e1e1': ''}}>
                 <div style={{display: 'flex', flexDirection: 'row', width: '90%', alignItems: 'center'}}>
                     <img src='logo.png' style={{height: '48px', width: 'auto', filter: !contentScrolled ? 'invert(1)' : ''}}/>
                     <Box component={'nav'} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex'}, justifyContent: 'right'}} style={{alignItems: 'center', gap: '50px', color: contentScrolled ? '#333' : '#FFF'}}>
@@ -40,7 +40,7 @@ const Header: React.FC<Props & AppBarProps> = ({contentScrolled, ...rest}) => {
                         ))}
                     </Box>
                     <div style={{marginLeft: 'auto', display: 'flex', alignItems: 'center'}}>
-                        {/*{contentScrolled && <Button style={{backgroundColor: '#e9aa0e', maxHeight: '30px', marginLeft: '25px'}} variant='contained' size='medium' >Learn now</Button>}*/}
+                        {/*{contentScrolled && <Button style={{backgroundColor: '#D4AF37', maxHeight: '30px', marginLeft: '25px'}} variant='contained' size='medium' >Learn now</Button>}*/}
                         <Box component={'nav'} sx={{ display: { xs: 'flex', md: 'none' }}}>
                             <MenuIcon onClick={() => handleOpenMenu()} style={{fontSize: '36px', color: contentScrolled ? 'inherit': 'white'}} />
                         </Box>

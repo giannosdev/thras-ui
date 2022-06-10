@@ -61,7 +61,7 @@ export default function Disclaimer(props: SimpleDialogProps) {
                 </Accordion>
             </DialogContent>
             <DialogActions sx={{justifyContent: 'left', pl: 3, pb: 2}}>
-                <Button variant='contained' onClick={onAgree} autoFocus style={{backgroundColor: '#e9aa0e'}}>
+                <Button variant='contained' onClick={onAgree} autoFocus style={{backgroundColor: '#D4AF37'}}>
                     Agree
                 </Button>
                 {!showMore && <Link

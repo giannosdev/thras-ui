@@ -4,13 +4,13 @@
 
 .main {
   margin-top: calc(-64px - 25px - 13px);
-  background: linear-gradient( rgba(0,0,0,.8), rgba(0,0,0,.05) ), url("/Background.jpeg") no-repeat center;
+  background: linear-gradient( rgba(0,0,0,0), rgba(255,255,255,.1) ), url("/Background.png") no-repeat center;
 background-size: cover;
   height: 100vh;
     align-items: center;
     display: flex;
   border-bottom-right-radius: 10%;
-    border-bottom: 3px solid darkgoldenrod;
+    border-bottom: 3px solid #D4AF37;
 }
 
 .mainInner {
@@ -60,11 +60,11 @@ background-size: cover;
 }
 
 .sectionTitle {
-    border-bottom: 3px dotted #e9aa0e;
     width: fit-content;
-    margin: 0 auto;
     margin-top: 45px;
     padding-bottom: 10px;
+    font-weight: 500;
+    text-transform: capitalize;
 }
 
 .title,

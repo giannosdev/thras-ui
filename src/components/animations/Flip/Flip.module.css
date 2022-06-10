@@ -8,7 +8,7 @@
 }
 
 .flipBox:hover {
-    /*border: 1px solid #e9aa0e;*/
+    /*border: 1px solid #D4AF37;*/
 
 }
 
@@ -42,7 +42,7 @@
     transform-style: preserve-3d;
     height: 100%;
 
-    background: rgba(0,0,0,.85);
+    background: #111;
 }
 
 .flipBoxBackHover {
