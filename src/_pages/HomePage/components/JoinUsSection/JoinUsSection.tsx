@@ -32,11 +32,14 @@ const JoinUsSection: React.FC<Props> = () => {
                     Benefits from joining us
                 </Typography>
                 <Grid item xs={12} md={6}>
+                    <Grid component={Typography} variant='h6' item xs={12} sx={{mb: 2}}>
+                        What you should expect from us:
+                    </Grid>
                     <List sx={{ listStyleType: 'disc' }}>
                         {bulletPoints.map(bulletItem =>
                             <ListItem key={bulletItem} sx={{ display: 'flex', alignItems: 'center' }}>
-                                <Circle sx={{fontSize: '8px', mr: 2}}/>
-                                <Typography variant='caption'>{bulletItem}</Typography>
+                                <Circle sx={{fontSize: '6px', mr: 2}}/>
+                                <Typography variant='subtitle'>{bulletItem}</Typography>
                             </ListItem>
                         )}
                     </List>
