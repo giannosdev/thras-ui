@@ -2,20 +2,9 @@ import React, {useEffect, useState} from "react";
 import styles from "../../../../../styles/Home.module.css";
 import {Motion, spring} from "react-motion";
 import {Link} from "react-scroll";
-import {
-    Button,
-    Box,
-    FormHelperText,
-    FormControl,
-    InputLabel,
-    TextField,
-    Typography,
-    Grid,
-    useMediaQuery
-} from "@mui/material";
-import { useTheme } from '@mui/material/styles';
-import {Label} from "@mui/icons-material";
-import CountrySelect from "./components/CountryDropdown/CountryDropdown";
+import {Button, Grid, Typography, useMediaQuery} from "@mui/material";
+import {useTheme} from '@mui/material/styles';
+import {NewsletterForm} from "./components/NewsletterForm/NewsletterForm";
 
 
 const LandingSection: React.FC = ({contentScrolled}) => {
@@ -49,31 +38,7 @@ const LandingSection: React.FC = ({contentScrolled}) => {
             </Grid>
             <Grid item sx={{display: {xs: 'none', md: 'flex'}}} md={4}>
                 <Motion style={{x: spring(showNewsletterForm ? 0 : -2000)}}>
-                    {({x}) => <Box
-                        component={'form'}
-                        style={{
-                            background: 'rgba(255,255,255, .75)',
-                            color: '#FFF',
-                            padding: '25px',
-                            WebkitTransform: `translate3d(${x}px, 0, 0)`,
-                            transform: `translate3d(${x}px, 0, 0)`,
-                            borderRadius: '10px'
-                        }}>
-                        <Typography variant='h5' style={{color: '#777'}}>Sign up to our newsletter</Typography><br/>
-                        <FormControl style={{display: 'flex', flexDirection: 'row', gap: '25px'}} sx={{mb: 3}}>
-                            <TextField style={{width: '50%'}} variant='standard' label={'Name'} id="my-input" aria-describedby="my-helper-text" />
-                            <TextField style={{width: '50%'}} variant='standard' label={'Surname'} id="my-input" aria-describedby="my-helper-text" />
-                        </FormControl>
-                        <FormControl style={{width: '100%'}} sx={{mb: 3}}>
-                            <TextField variant='standard' label={'Email'} id="my-input" aria-describedby="my-helper-text" />
-                        </FormControl>
-                        <FormControl style={{width: '100%'}} sx={{mb: 5}}>
-                            <TextField variant='standard' label={'Phone (optional)'} id="my-input" aria-describedby="my-helper-text" />
-                        </FormControl>
-                        <CountrySelect style={{width: '100%'}} />
-                        <br/>
-                        <Button fullWidth color='primary' variant='contained' style={{background: '#111'}}>Sign Up</Button>
-                    </Box>}
+                    {({x}) => <NewsletterForm x={x}/>}
                 </Motion>
             </Grid>
     </Grid>

@@ -25,8 +25,8 @@ const pages = [
         route: '/'
     },
     {
-        label: 'About Us',
-        route: '/about-us',
+        label: 'About',
+        route: '/about',
         disabled: true,
     },
     {
