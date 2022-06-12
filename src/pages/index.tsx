@@ -9,21 +9,17 @@ import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, 
 import Flip from "../components/animations/flip/Flip";
 import LandingSection from "../_pages/HomePage/components/LandingSection/LandingSection";
 import ServicesSection from "../_pages/HomePage/components/ServicesSection/ServicesSection";
+import JoinUsSection from "../_pages/HomePage/components/JoinUsSection/JoinUsSection";
 
 
 const Home: NextPage = ({contentScrolled}) => {
-  return (
-    // <div className={styles.container}>
-      <>
-        <LandingSection contentScrolled={contentScrolled} />
-
+  return <>
+      <LandingSection contentScrolled={contentScrolled} />
       <Element name="test1" className="element" >
         <ServicesSection />
       </Element>
-
-      </>
-    // </div>
-  )
+      <JoinUsSection />
+  </>;
 }
 
 export default Home
