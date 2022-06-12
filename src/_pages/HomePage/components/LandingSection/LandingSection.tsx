@@ -37,9 +37,9 @@ const LandingSection: React.FC = ({contentScrolled}) => {
                 </div>
             </Grid>
             <Grid item sx={{display: {xs: 'none', md: 'flex'}}} md={4}>
-                <Motion style={{x: spring(showNewsletterForm ? 0 : -2000)}}>
-                    {({x}) => <NewsletterForm x={x}/>}
-                </Motion>
+            {/*    <Motion style={{x: spring(showNewsletterForm ? 0 : -2000)}}>*/}
+            {/*        {({x}) => <NewsletterForm x={x}/>}*/}
+            {/*    </Motion>*/}
             </Grid>
     </Grid>
 

@@ -5,6 +5,8 @@ import {Circle, Facebook, Instagram, LinkedIn} from "@mui/icons-material";
 import Link from "next/link";
 import {useTheme} from "@mui/material/styles";
 import styles from "../../../../../styles/Home.module.css";
+import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
+import AutoGraphOutlinedIcon from '@mui/icons-material/AutoGraphOutlined';
 
 interface Props {
     style?: {};
@@ -20,6 +22,28 @@ const bulletPoints = [
     'Criteria for a wise choice of broker for your trading or investment – spot the differences between a scam broker and a legitimate one.',
 ];
 
+const braggingPoints = [
+    {
+        icon: <HandshakeOutlinedIcon style={{fontSize: '64px'}} />,
+        title: 'Reliability',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    {
+        icon: <AutoGraphOutlinedIcon style={{fontSize: '64px'}} />,
+        title: 'Efficiency',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    {
+        icon: <HandshakeOutlinedIcon style={{fontSize: '64px'}} />,
+        title: 'Reliability 2',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+    {
+        icon: <AutoGraphOutlinedIcon style={{fontSize: '64px'}} />,
+        title: 'Efficiency 3',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    },
+];
 
 const JoinUsSection: React.FC<Props> = () => {
     const theme = useTheme();
@@ -47,6 +71,27 @@ const JoinUsSection: React.FC<Props> = () => {
                 <Grid item xs={12} md={6} style={{textAlign: 'center'}}>
                     <img style={{width: '70%'}} src='/joinus.png' />
                 </Grid>
+            </Grid>
+            <Grid container sx={{width: '90%', m: '25px auto 0', pb: 4}} spacing={2}>
+                {braggingPoints.map(bP => <Grid
+                    item
+                    xs={6}
+                    md={3}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            border: '1px solid #ccc',
+                            gap: '10px',
+                            padding: '15px'
+                        }}>
+                        {bP.icon}
+                        <Typography variant='h6'>{bP.title}</Typography>
+                        <Typography variant='subtitle'>{bP.description}</Typography>
+                    </div>
+                </Grid>)}
             </Grid>
         </div>
     );
