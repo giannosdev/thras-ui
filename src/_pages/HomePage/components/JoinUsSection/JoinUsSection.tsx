@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
-import {Divider, Grid, Link as LinkMUI, List, ListItem, useMediaQuery} from "@mui/material";
+import {Button, Divider, Grid, Link as LinkMUI, List, ListItem, useMediaQuery} from "@mui/material";
 import {Circle, Facebook, Instagram, LinkedIn} from "@mui/icons-material";
 import Link from "next/link";
 import {useTheme} from "@mui/material/styles";
@@ -93,6 +93,10 @@ const JoinUsSection: React.FC<Props> = () => {
                         <Typography variant='subtitle'>{bP.description}</Typography>
                     </div>
                 </Grid>)}
+                <Grid item xs={12}>
+                    <Button size='large' color='primary' variant='outlined' style={{border: '1px solid #D4AF37', color: '#D4AF37', margin: '25px auto', display: 'flex'}}>More info</Button>
+
+                </Grid>
             </Grid>
         </div>
     );
