@@ -79,6 +79,7 @@ const JoinUsSection: React.FC<Props> = () => {
                     md={3}>
                     <div
                         style={{
+                            background: '#FFF',
                             display: 'flex',
                             flexDirection: 'column',
                             justifyContent: 'center',
