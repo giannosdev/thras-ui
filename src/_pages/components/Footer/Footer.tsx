@@ -36,7 +36,7 @@ const Footer: React.FC<Props & AppBarProps> = () => {
                     </div>
 
                 </Grid>
-                <Divider color='white' style={{margin: '20px 0', width: '100%'}}/>
+                <Divider color='white' style={{margin: '20px 0 0', width: '100%'}}/>
                 <Grid item xs={12} style={{paddingLeft: 0, paddingRight: 0}} >
                     <Typography variant='h7' style={{color: '#f1f1f1'}}>Disclaimer</Typography><br /><br/>
                     <Typography variant='caption2' style={{color: '#F7F7F7'}}>

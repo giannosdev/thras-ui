@@ -24,22 +24,22 @@ const bulletPoints = [
 
 const braggingPoints = [
     {
-        icon: <HandshakeOutlinedIcon style={{fontSize: '64px'}} />,
+        icon: <HandshakeOutlinedIcon style={{fontSize: '64px', color: '#d4af37'}} />,
         title: 'Reliability',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
     {
-        icon: <AutoGraphOutlinedIcon style={{fontSize: '64px'}} />,
+        icon: <AutoGraphOutlinedIcon style={{fontSize: '64px', color: '#d4af37'}} />,
         title: 'Efficiency',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
     {
-        icon: <HandshakeOutlinedIcon style={{fontSize: '64px'}} />,
+        icon: <HandshakeOutlinedIcon style={{fontSize: '64px', color: '#d4af37'}} />,
         title: 'Reliability 2',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
     {
-        icon: <AutoGraphOutlinedIcon style={{fontSize: '64px'}} />,
+        icon: <AutoGraphOutlinedIcon style={{fontSize: '64px', color: '#d4af37'}} />,
         title: 'Efficiency 3',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
@@ -50,7 +50,7 @@ const JoinUsSection: React.FC<Props> = () => {
 
     const smUp = useMediaQuery(theme.breakpoints.up('md'));
     return (
-        <div style={{background: 'rgb(231, 239, 254)', marginTop: '50px'}}>
+        <div style={{background: '', marginTop: '50px'}}>
             <Grid container spacing={2} sx={{width: '90%', margin: '0 auto',  display: 'flex', alignItems: 'center'}}>
                 <Typography component={Grid} item xs={12} className={styles.sectionTitle} variant='h5' sx={{textAlign: 'center', margin: !smUp ? '50px auto 0' : '50px 0 0 0'}}>
                     Benefits from joining us
@@ -67,10 +67,14 @@ const JoinUsSection: React.FC<Props> = () => {
                             </ListItem>
                         )}
                     </List>
+                    <Button size='large' color='primary' variant='outlined' style={{border: '1px solid #D4AF37', color: '#D4AF37', margin: '25px 0', display: 'flex'}}>More info</Button>
                 </Grid>
                 <Grid item xs={12} md={6} style={{textAlign: 'center'}}>
                     <img style={{width: '70%'}} src='/joinus.png' />
                 </Grid>
+            <Grid item xs={12}>
+
+            </Grid>
             </Grid>
             <Grid container sx={{width: '90%', m: '25px auto 0', pb: 4}} spacing={2}>
                 {braggingPoints.map(bP => <Grid
@@ -93,10 +97,6 @@ const JoinUsSection: React.FC<Props> = () => {
                         <Typography variant='subtitle'>{bP.description}</Typography>
                     </div>
                 </Grid>)}
-                <Grid item xs={12}>
-                    <Button size='large' color='primary' variant='outlined' style={{border: '1px solid #D4AF37', color: '#D4AF37', margin: '25px auto', display: 'flex'}}>More info</Button>
-
-                </Grid>
             </Grid>
         </div>
     );
