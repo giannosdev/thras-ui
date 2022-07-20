@@ -37,7 +37,7 @@ const JoinUsSection: React.FC<Props> = () => {
     return (
         <div style={{background: '', margin: '50px 0'}}>
             <Grid container spacing={2} sx={{width: '85%', margin: '0 auto',  display: 'flex', alignItems: 'center'}}>
-                <Typography variant='subtitle' style={{fontSize: '1rem', marginTop: '2rem'}}>
+                <Typography variant={'subtitle'} style={{fontSize: '1rem', marginTop: '2rem'}}>
                     <div style={{fontSize: '1.25rem', marginBottom: '1em'}}>Hello guys and thank you for your interest in our community,</div><br /><br />
                     <div style={{paddingLeft: '0.5rem'}}>
                         Our goal here is to transform all those who are willing to risk TIME and MONEY to get themselves out of their comfort zone for a better future.
