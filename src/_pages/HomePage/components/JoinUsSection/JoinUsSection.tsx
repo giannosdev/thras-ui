@@ -6,6 +6,7 @@ import Link from "next/link";
 import {useTheme} from "@mui/material/styles";
 import styles from "../../../../../styles/Home.module.css";
 import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
+import PublicIcon from '@mui/icons-material/PublicOutlined';
 import AutoGraphOutlinedIcon from '@mui/icons-material/AutoGraphOutlined';
 
 interface Props {
@@ -25,24 +26,24 @@ const bulletPoints = [
 const braggingPoints = [
     {
         icon: <HandshakeOutlinedIcon style={{fontSize: '64px', color: '#d4af37'}} />,
-        title: 'Reliability',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        title: 'Reliable',
+        description: 'Knowladge from honest and reliable sources.',
     },
     {
         icon: <AutoGraphOutlinedIcon style={{fontSize: '64px', color: '#d4af37'}} />,
-        title: 'Efficiency',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        title: 'Efficient',
+        description: 'Learn a powerful skill and use it for any market and from anywhere.',
     },
     {
-        icon: <HandshakeOutlinedIcon style={{fontSize: '64px', color: '#d4af37'}} />,
-        title: 'Reliability 2',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        icon: <PublicIcon style={{fontSize: '64px', color: '#d4af37'}} />,
+        title: 'Global',
+        description: 'Knowledge from honest and reliable sources.',
     },
-    {
-        icon: <AutoGraphOutlinedIcon style={{fontSize: '64px', color: '#d4af37'}} />,
-        title: 'Efficiency 3',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
+    // {
+    //     icon: <AutoGraphOutlinedIcon style={{fontSize: '64px', color: '#d4af37'}} />,
+    //     title: 'Efficiency 3',
+    //     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    // },
 ];
 
 const JoinUsSection: React.FC<Props> = () => {
@@ -79,8 +80,7 @@ const JoinUsSection: React.FC<Props> = () => {
             <Grid container sx={{width: '85%', m: '25px auto 0', pb: 4}} spacing={2}>
                 {braggingPoints.map(bP => <Grid
                     item
-                    xs={6}
-                    md={3}>
+                    xs={4}>
                     <div
                         style={{
                             background: '#FFF',
