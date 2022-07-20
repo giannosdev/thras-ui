@@ -80,7 +80,7 @@ const ServicesSection: React.FC = ({classes}) => {
     const theme = useTheme();
 
     const smUp = useMediaQuery(theme.breakpoints.up('md'));
-    return <div style={{width: '90%', margin: '0 auto'}}>
+    return <div style={{width: '85%', margin: '0 auto'}}>
         {/*<h2 style={{color: '#D4AF37'}}>Our Services</h2>*/}
         {/*<Button sx={{mt: 5, borderColor: '#D4AF37', color: '#D4AF37', '&:hover': {borderColor: '#D4AF37', background: '#D4AF37', color: '#FFF'}}} fullWidth variant='outlined'>Our Services</Button>*/}
 

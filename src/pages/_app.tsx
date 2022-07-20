@@ -11,16 +11,29 @@ import Footer from "../_pages/components/Footer/Footer";
 import Fab from '@mui/material/Fab';
 import {KeyboardArrowUp} from "@mui/icons-material";
 import ScrollTop from "../components/composite/ScrollTop/ScrollTop";
+import { GraphQLClient, gql } from "graphql-request";
+import { QueryClient, QueryClientProvider  } from "react-query";
+import {useRouter} from "next/router";
+
 
 const theme = createTheme({
     palette: {
         white: {
             main: '#fff',
         },
+        primary: {
+            main: '#D4AF37',
+        }
     }
 });
 
+
+const queryClient = new QueryClient();
+
+
+
 function MyApp({Component, pageProps}: AppProps) {
+
     const [disclaimerOpen, setDisclaimerOpen] = useState(false);
     const [contentScrolled, setContentScrolled] = useState(false);
     const trackScrolling = () => {
@@ -47,6 +60,13 @@ function MyApp({Component, pageProps}: AppProps) {
         localStorage.setItem('disclaimerOpen', 'false');
         setDisclaimerOpen(false);
     };
+
+    const router = useRouter();
+    const currentRoute = router.pathname;
+
+    const isNotHome = currentRoute !== '/';
+
+
     return <>
         <Head>
             <title>Lets Get Technical</title>
@@ -57,35 +77,42 @@ function MyApp({Component, pageProps}: AppProps) {
                 href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
             />
         </Head>
-        <ThemeProvider theme={theme}>
-            <div role='none' style={{display: 'hidden'}} id='back-to-top-anchor' />
-            <Header position='sticky' color={contentScrolled ? 'white' : 'transparent'} contentScrolled={contentScrolled} elevation={0}/>
-            <div id='content'>
-                <Component {...pageProps} contentScrolled={contentScrolled} />
-            </div>
-            <Footer />
-            {/*<footer className={styles.footer}>*/}
-            {/*    <a*/}
-            {/*        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"*/}
-            {/*        target="_blank"*/}
-            {/*        rel="noopener noreferrer"*/}
-            {/*    >*/}
-            {/*        Powered by{' '}*/}
-            {/*        <span className={styles.logo}>*/}
-            {/*          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16}/>*/}
-            {/*        </span>*/}
-            {/*    </a>*/}
-            {/*</footer>*/}
-            <Disclaimer open={disclaimerOpen} onAgree={handleOnDisclaimerAgree}/>
-            {contentScrolled && <ScrollTop><Fab
-                // size='large'
-                style={{
-                    color: '#111',
-                    background: '#FFF'
-                }}>
-                <KeyboardArrowUp />
-            </Fab></ScrollTop>}
-        </ThemeProvider>
+            <QueryClientProvider client={queryClient}>
+                <ThemeProvider theme={theme}>
+                    <div role='none' style={{display: 'hidden'}} id='back-to-top-anchor' />
+                    <Header
+                        position='sticky'
+                        color={contentScrolled ? 'white' : 'transparent'}
+                        contentScrolled={contentScrolled} elevation={0}
+                        flipColors={isNotHome}
+                        style={{...(isNotHome && {backgroundColor: '#D4AF37'})}}/>
+                    <div id='content'>
+                        <Component {...pageProps} contentScrolled={contentScrolled} />
+                    </div>
+                    <Footer />
+                    {/*<footer className={styles.footer}>*/}
+                    {/*    <a*/}
+                    {/*        href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"*/}
+                    {/*        target="_blank"*/}
+                    {/*        rel="noopener noreferrer"*/}
+                    {/*    >*/}
+                    {/*        Powered by{' '}*/}
+                    {/*        <span className={styles.logo}>*/}
+                    {/*          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16}/>*/}
+                    {/*        </span>*/}
+                    {/*    </a>*/}
+                    {/*</footer>*/}
+                    <Disclaimer open={disclaimerOpen} onAgree={handleOnDisclaimerAgree}/>
+                    {contentScrolled && <ScrollTop><Fab
+                        // size='large'
+                        style={{
+                            color: '#111',
+                            background: '#FFF'
+                        }}>
+                        <KeyboardArrowUp />
+                    </Fab></ScrollTop>}
+                </ThemeProvider>
+            </QueryClientProvider>
     </>;
 }
 

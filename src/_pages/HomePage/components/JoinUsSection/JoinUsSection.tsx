@@ -51,7 +51,7 @@ const JoinUsSection: React.FC<Props> = () => {
     const smUp = useMediaQuery(theme.breakpoints.up('md'));
     return (
         <div style={{background: '', marginTop: '50px'}}>
-            <Grid container spacing={2} sx={{width: '90%', margin: '0 auto',  display: 'flex', alignItems: 'center'}}>
+            <Grid container spacing={2} sx={{width: '85%', margin: '0 auto',  display: 'flex', alignItems: 'center'}}>
                 <Typography component={Grid} item xs={12} className={styles.sectionTitle} variant='h5' sx={{textAlign: 'center', margin: !smUp ? '50px auto 0' : '50px 0 0 0'}}>
                     Benefits from joining us
                 </Typography>
@@ -76,7 +76,7 @@ const JoinUsSection: React.FC<Props> = () => {
 
             </Grid>
             </Grid>
-            <Grid container sx={{width: '90%', m: '25px auto 0', pb: 4}} spacing={2}>
+            <Grid container sx={{width: '85%', m: '25px auto 0', pb: 4}} spacing={2}>
                 {braggingPoints.map(bP => <Grid
                     item
                     xs={6}

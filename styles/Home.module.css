@@ -20,7 +20,7 @@ background-size: cover;
   justify-content: center;
   height: calc(100% - 64px);
 
-  width: 90% !important;
+  width: 85% !important;
   padding-top: 64px;
   margin: 0 auto;
 }
@@ -93,7 +93,7 @@ background-size: cover;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  max-width: 90%;
+  max-width: 85%;
 }
 
 .card {

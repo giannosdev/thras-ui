@@ -27,7 +27,7 @@ const Footer: React.FC<Props & AppBarProps> = () => {
     const smUp = useMediaQuery(theme.breakpoints.up('md'));
     return (
         <div style={{ background: '#111', color: '#333'}}>
-            <Grid container spacing={2} style={{width: '90%', margin: '0 auto' , padding: '25px 0'}}>
+            <Grid container spacing={2} style={{width: '85%', margin: '0 auto' , padding: '25px 0'}}>
                 <Grid item xs={12} style={{paddingLeft: 0, paddingRight: 0, display: 'flex', flexDirection: 'row', justifyContent: 'right'}} >
                     <div style={{display: 'flex', flexDirection: 'row', gap: '15px', justifyContent: !smUp ? 'space-between' : "inherit", width: '100%'}}>
                         {['Home', 'About', 'Memberships', 'Contact'].map(menuItem => {

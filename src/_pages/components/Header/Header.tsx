@@ -11,6 +11,8 @@ import MobileMenu from "./MobileMenu/MobileMenu";
 import {useState} from "react";
 import handler from "../../../pages/api/hello";
 import {useRouter} from "next/router";
+import Link from 'next/link';
+
 
 interface Props {
     style?: {};
@@ -25,19 +27,20 @@ const pages = [
         route: '/'
     },
     {
-        label: 'About',
-        route: '/about',
-        disabled: true,
+        label: 'More Info',
+        route: '/more-info',
+
+        // disabled: true,
     },
-    {
-        label: 'Memberships',
-        route: '/memberships',
-        disabled: true,
-    },
+    // {
+    //     label: 'Memberships',
+    //     route: '/memberships',
+    //     disabled: true,
+    // },
 ];
 
 
-const Header: React.FC<Props & AppBarProps> = ({contentScrolled, ...rest}) => {
+const Header: React.FC<Props & AppBarProps> = ({contentScrolled, style, flipColors, ...rest}) => {
     const router = useRouter();
     const currentRoute = router.pathname;
     const [menuOpen, setMenuOpen] = useState(false);
@@ -47,19 +50,20 @@ const Header: React.FC<Props & AppBarProps> = ({contentScrolled, ...rest}) => {
 
     return (
         <>
-            <AppBar id='header' {...rest} style={{height: '102px', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background-color 0.2s ease-in-out', willChange: 'scroll-position', borderBottom: contentScrolled ? '1px solid #e1e1e1': ''}}>
-                <div style={{display: 'flex', flexDirection: 'row', width: '90%', alignItems: 'center'}}>
-                    <img src='logo.png' style={{height: '48px', width: 'auto', filter: !contentScrolled ? 'invert(1)' : ''}}/>
+            <AppBar id='header' {...rest} style={{...style, height: '102px', display: 'flex', alignItems: 'center', justifyContent: 'center', transition: 'background-color 0.2s ease-in-out', willChange: 'scroll-position', borderBottom: contentScrolled ? '1px solid #e1e1e1': ''}}>
+                <div style={{display: 'flex', flexDirection: 'row', width: '85%', alignItems: 'center'}}>
+                    <img src='logo.png' style={{height: '48px', width: 'auto', filter: (!contentScrolled && !flipColors) ? 'invert(1)' : ''}}/>
                     <Box component={'nav'} sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex'}, justifyContent: 'right'}} style={{alignItems: 'center', gap: '50px', color: contentScrolled ? '#333' : '#FFF'}}>
                         {pages.map((page) => (
-                            <a
-                                key={page.route} onClick={() => {}}
-                                style={{
-                                    color: currentRoute === page.route ? '#D4AF37' : (page.disabled ? '#aaa' : 'inherit'),
-                                    cursor: currentRoute === page.route ? 'inherit' : page.disabled ? 'no-drop' : 'pointer'
-                                }}>
-                                {page.label}
-                            </a>
+                            <Link href={page.route}>
+                                <a key={page.route} onClick={() => {}}
+                                    style={{
+                                        color: currentRoute === page.route ? flipColors ? '#FFF' : '#D4AF37' : (page.disabled ? '#aaa' : flipColors ? '#333' : 'inherit'),
+                                        cursor: currentRoute === page.route ? 'inherit' : page.disabled ? 'no-drop' : 'pointer'
+                                    }}>
+                                    {page.label}
+                                </a>
+                            </Link>
                         ))}
                     </Box>
                     <div style={{marginLeft: 'auto', display: 'flex', alignItems: 'center'}}>
